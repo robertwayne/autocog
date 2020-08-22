@@ -16,7 +16,7 @@ def create_from_template(template: str, cogs: str, dest: str):
     for cog in cogs:
         tokens = {'NAME': cog, 'NAME_LOWER': cog.lower(), 'NAME_UPPER': cog.upper()}
         tmp = read_template(template).safe_substitute(**tokens)
-        root = Path(Path.cwd() / dest if dest else 'cogs')
+        root = Path(Path.cwd() / dest if dest else 'commands')
 
         try:
             generate_file(root, tmp, cog)
